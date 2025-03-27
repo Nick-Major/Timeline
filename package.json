@@ -8,7 +8,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
