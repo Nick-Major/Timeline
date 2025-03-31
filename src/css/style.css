@@ -10,18 +10,20 @@ body {
 }
 
 .container {
-    display: flex;
     padding: 5px;
-    margin: 20px auto;
-    justify-content: center;
+    margin: 10px auto;
+    box-sizing: border-box;
+    width: 90vw;
 }
 
-.posts-feed {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90vw;
-    min-height: 50px;
+/* .posts-feed {
+    width: inherit;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
+} */
+
+.feed-wrap {
+    height: calc(90vh - 60px);
 }
 
 .post-progress {
