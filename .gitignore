@@ -84,3 +84,7 @@ typings/
 
 # IDE
 .idea
+
+# unused files
+src/js/AudioWidget.js
+src/js/VideoWidget.js
