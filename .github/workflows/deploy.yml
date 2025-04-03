@@ -1,14 +1,31 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [main]
+    branches: [ main ] # Или ваша основная ветка
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Важно: даем разрешение на запись
+
     steps:
       - uses: actions/checkout@v4
-      - run: yarn install && yarn build
-      - uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          fetch-depth: 0 # Полная история коммитов
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: yarn install
+      - run: yarn build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Автоматический токен
+          publish_dir: ./dist # Ваша папка сборки
+          keep_files: true # Сохранять существующие файлы
